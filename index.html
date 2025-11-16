@@ -499,6 +499,60 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* Floating contact buttons - horizontal */
+    .floating-buttons-h {
+      position: fixed;
+      bottom: 18px;
+      right: 18px;
+      display: flex;
+      flex-direction: row;
+      gap: 12px;
+      z-index: 9999;
+      flex-wrap: wrap;
+    }
+
+    .float-btn {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.35);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .float-btn img {
+      width: 28px;
+      height: 28px;
+    }
+
+    .float-btn:hover {
+      transform: scale(1.07);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.45);
+    }
+
+    .float-btn.whatsapp { background:#25D366; }
+    .float-btn.viber { background:#7360f2; }
+    .float-btn.call { background:#0ea5e9; }
+
+    @media (max-width: 480px) {
+      .floating-buttons-h {
+        bottom: 12px;
+        right: 12px;
+        gap: 8px;
+      }
+      .float-btn {
+        width: 48px;
+        height: 48px;
+      }
+      .float-btn img {
+        width: 24px;
+        height: 24px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1148,5 +1202,19 @@ Avez-vous une date limite ?
   </div>
 </div>
 
+<!-- Floating Contact Buttons Horizontal (BG + FR) -->
+<div class="floating-buttons-h">
+  <a class="float-btn whatsapp" href="https://wa.me/359893672003" target="_blank" title="WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA">
+  </a>
+  <a class="float-btn viber" href="viber://chat?number=+359893672003" title="Viber">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Viber-logo.svg" alt="Viber">
+  </a>
+  <a class="float-btn call" href="tel:0893672003" title="Позвъни">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Phone_font_awesome.svg" alt="Call">
+  </a>
+</div>
+
 </body>
 </html>
+
