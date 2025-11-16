@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Преводи и документи – услуги за българи във Франция</title>
+  <style>
+    :root {
+      --bg: #050816;
+      --bg2: #0f172a;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.15);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --card: #020617;
+      --border: #1f2937;
+      --danger: #f97373;
+      --radius-lg: 20px;
+      --radius-xl: 28px;
+      --shadow-soft: 0 20px 45px rgba(15, 23, 42, 0.8);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #1d283a 0%, #020617 60%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 18px 16px 40px;
+    }
+
+    /* Навигация */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      background: radial-gradient(circle at top left, #0f172a, #020617);
+      backdrop-filter: blur(20px);
+      position: sticky;
+      top: 10px;
+      z-index: 20;
+      box-shadow: 0 18px 35px rgba(15, 23, 42, 0.85);
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      font-size: 0.98rem;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .logo span {
+      color: #e5e7eb;
+      font-weight: 500;
+      text-transform: none;
+      letter-spacing: normal;
+      margin-left: 4px;
+      font-size: 0.9rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 14px;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .nav-links a {
+      padding: 6px 12px;
+      border-radius: 999px;
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover {
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--accent);
+    }
+
+    /* Хедър / Hero */
+    .hero {
+      margin-top: 26px;
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.7fr);
+      gap: 26px;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-size: clamp(2rem, 4vw, 2.7rem);
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+
+    .hero-gradient {
+      background: linear-gradient(120deg, #38bdf8, #a855f7, #f97316);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-sub {
+      color: var(--muted);
+      font-size: 0.98rem;
+      max-width: 480px;
+      margin-bottom: 18px;
+    }
+
+    .hero-highlight {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: 999px;
+      padding: 4px 12px;
+      font-size: 0.8rem;
+      color: var(--accent);
+      margin-bottom: 8px;
+      border: 1px solid rgba(56, 189, 248, 0.5);
+    }
+
+    .hero-highlight span.dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 12px rgba(34, 197, 94, 0.9);
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .btn-primary {
+      border-radius: 999px;
+      padding: 8px 18px;
+      background: linear-gradient(120deg, #38bdf8, #0ea5e9);
+      border: none;
+      color: #0b1020;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 15px 30px rgba(56, 189, 248, 0.35);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 20px 35px rgba(56, 189, 248, 0.4);
+    }
+
+    .btn-outline {
+      border-radius: 999px;
+      padding: 8px 16px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: transparent;
+      color: var(--muted);
+      font-size: 0.86rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: 0.2s;
+    }
+
+    .btn-outline:hover {
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--accent);
+    }
+
+    /* Hero карта */
+    .hero-card {
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border);
+      background: radial-gradient(circle at top, #020617, #020617 35%, #020617);
+      box-shadow: var(--shadow-soft);
+      padding: 18px 18px 16px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(56, 189, 248, 0.18), transparent 60%),
+        radial-gradient(circle at 100% 0%, rgba(168, 85, 247, 0.18), transparent 60%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .hero-card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 10px rgba(56, 189, 248, 0.8);
+    }
+
+    .card-title {
+      font-size: 1.05rem;
+      margin-bottom: 6px;
+    }
+
+    .card-sub {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .card-list {
+      list-style: none;
+      margin-bottom: 16px;
+    }
+
+    .card-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 0.78rem;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .card-list li span.icon {
+      margin-top: 2px;
+      font-size: 0.9rem;
+      color: var(--accent);
+    }
+
+    .price-box {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px dashed rgba(148, 163, 184, 0.5);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .price-main {
+      font-size: 0.9rem;
+    }
+
+    .price-main strong {
+      font-size: 1rem;
+      color: var(--accent);
+    }
+
+    .price-note {
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+
+    .small-tag {
+      font-size: 0.65rem;
+      color: #a5b4fc;
+      background: rgba(79, 70, 229, 0.2);
+      padding: 3px 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(129, 140, 248, 0.5);
+    }
+
+    /* Секция */
+    .section {
+      margin-top: 40px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .section-title {
+      font-size: 1.2rem;
+    }
+
+    .section-sub {
+      font-size: 0.86rem;
+      color: var(--muted);
+      max-width: 480px;
+    }
+
+    /* Карти услуги */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      border-radius: var(--radius-lg);
+      background: radial-gradient(circle at top left, #0b1120, #020617);
+      border: 1px solid var(--border);
+      padding: 14px 14px 12px;
+      font-size: 0.84rem;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.7);
+    }
+
+    .card h3 {
+      font-size: 0.95rem;
+      margin-bottom: 6px;
+    }
+
+    .card p {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .pill strong {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .card ul {
+      list-style: none;
+      margin-top: 4px;
+    }
+
+    .card ul li {
+      display: flex;
+      gap: 6px;
+      align-items: flex-start;
+      font-size: 0.8rem;
+      margin-bottom: 4px;
+    }
+
+    .card ul li span.bullet {
+      font-size: 0.8rem;
+      color: var(--accent);
+      margin-top: 1px;
+    }
+
+    /* Контакти */
+    .contact {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.2fr);
+      gap: 18px;
+      align-items: flex-start;
+    }
+
+    .contact-card {
+      border-radius: var(--radius-xl);
+      padding: 16px 16px 14px;
+      border: 1px solid var(--border);
+      background: radial-gradient(circle at top, #020617, #020617 60%, #020617);
+      box-shadow: var(--shadow-soft);
+      font-size: 0.85rem;
+    }
+
+    .contact-row {
+      margin-bottom: 8px;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      font-size: 0.84rem;
+    }
+
+    .label {
+      font-size: 0.78rem;
+      color: var(--muted);
+      min-width: 70px;
+    }
+
+    .code-box {
+      margin-top: 6px;
+      padding: 8px 10px;
+      background: #020617;
+      border-radius: 12px;
+      border: 1px dashed rgba(55, 65, 81, 0.9);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+        "Liberation Mono", "Courier New", monospace;
+      font-size: 0.78rem;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .lang-switch {
+      margin-top: 10px;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .lang-switch span {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    /* Футър */
+    .footer {
+      margin-top: 30px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(30, 41, 59, 0.9);
+      font-size: 0.78rem;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .footer strong {
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+
+    .footer span.tag {
+      font-size: 0.72rem;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    /* Responsive */
+    @media (max-width: 800px) {
+      .nav {
+        border-radius: 16px;
+        padding: 8px 10px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-card {
+        order: -1;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+<div style="text-align:center; margin-top:15px;">
+  <button onclick="switchLang('bg')" style="padding:6px 12px; margin-right:10px;">BG</button>
+  <button onclick="switchLang('fr')" style="padding:6px 12px;">FR</button>
+</div>
+
+<script>
+function switchLang(lang) {
+  var bg = document.querySelectorAll('.lang-bg');
+  var fr = document.querySelectorAll('.lang-fr');
+  bg.forEach(e => e.style.display = (lang === 'bg' ? 'block' : 'none'));
+  fr.forEach(e => e.style.display = (lang === 'fr' ? 'block' : 'none'));
+}
+</script>
+
+<div class="lang-bg">
+  <div class="page">
+    <!-- Навигация -->
+    <header class="nav">
+      <div class="logo">
+        DocHelp<span>Черньо Дохчев – преводи и документи</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#services">Услуги</a>
+        <a href="#prices">Цени</a>
+        <a href="#contact">Контакт</a>
+      </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-text">
+        <div class="hero-highlight">
+          <span class="dot"></span>
+          Помощ за българи във Франция – документи без стрес
+        </div>
+        <h1>
+          <span class="hero-gradient">Преводи, писма и документи</span><br />
+          бързо, ясно и на разбираем език.
+        </h1>
+        <p class="hero-sub">
+          Помагам с превод и изготвяне на писма, договори и формуляри
+          <strong>български ⇄ френски</strong> – банки, наем, работа,
+          социални служби, администрации.
+        </p>
+        <div class="hero-cta">
+          <a href="#contact">
+            <button class="btn-primary">
+              Свържи се с мен
+              <span>→</span>
+            </button>
+          </a>
+          <a href="#services">
+            <button class="btn-outline">
+              Виж услугите
+            </button>
+          </a>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <div class="hero-card-inner">
+          <div class="badge">
+            <span class="badge-dot"></span>
+            Индивидуална помощ стъпка по стъпка
+          </div>
+          <h2 class="card-title">Примерна услуга</h2>
+          <p class="card-sub">
+            Превод и попълване на документи за наем, кредит, работа или социални помощи.
+          </p>
+
+          <ul class="card-list">
+            <li>
+              <span class="icon">✔</span>
+              <span>Превод от български на френски и обратно.</span>
+            </li>
+            <li>
+              <span class="icon">✔</span>
+              <span>Попълване на формуляри + обяснение какво подписваш.</span>
+            </li>
+            <li>
+              <span class="icon">✔</span>
+              <span>Готов PDF или текст, готов за изпращане по имейл/поща.</span>
+            </li>
+          </ul>
+
+          <div class="price-box">
+            <div class="price-main">
+              от <strong>25 – 40 €</strong><br />
+              <span class="price-note">за стандартен документ (1–2 страници)</span>
+            </div>
+            <div class="small-tag">
+              Плащане по банков превод / Revolut
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Услуги -->
+    <section class="section" id="services">
+      <div class="section-header">
+        <h2 class="section-title">Услуги</h2>
+        <p class="section-sub">
+          Специализирани услуги за българи, живеещи и работещи във Франция.
+          Всичко е лично, дискретно и обяснено на български език.
+        </p>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <h3>Превод на документи</h3>
+          <p>
+            Неофициален превод на писма, договори, имейли и формуляри
+            <strong>български ⇄ френски</strong>.
+          </p>
+          <ul>
+            <li>
+              <span class="bullet">•</span>
+              <span>Банки, кредити, наеми, фирмени документи.</span>
+            </li>
+            <li>
+              <span class="bullet">•</span>
+              <span>Социални служби, CAF, CPAM, Pôle Emploi и др.</span>
+            </li>
+          </ul>
+          <div class="pill">
+            от <strong>15 €</strong> / страница
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Изготвяне на писма и жалби</h3>
+          <p>
+            Подготвяне на официално звучащи писма на френски – до
+            наемодатели, работодатели, администрации и др.
+          </p>
+          <ul>
+            <li>
+              <span class="bullet">•</span>
+              <span>Прекратяване на договор, оплакване, искане, запитване.</span>
+            </li>
+            <li>
+              <span class="bullet">•</span>
+              <span>Обяснителни писма при проблеми с документи.</span>
+            </li>
+          </ul>
+          <div class="pill">
+            от <strong>25 €</strong> / писмо
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Помощ с формуляри и онлайн процедури</h3>
+          <p>
+            Помощ при попълване на френски формуляри – на хартия или онлайн,
+            с подробно обяснение какво значи всяка точка.
+          </p>
+          <ul>
+            <li>
+              <span class="bullet">•</span>
+              <span>Формуляри за работа, социални помощи, здравни каси.</span>
+            </li>
+            <li>
+              <span class="bullet">•</span>
+              <span>Подготовка на информацията, която ще ти искат.</span>
+            </li>
+          </ul>
+          <div class="pill">
+            от <strong>20 €</strong> / процедура
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Цени / кратко обяснение -->
+    <section class="section" id="prices">
+      <div class="section-header">
+        <h2 class="section-title">Цени и начин на работа</h2>
+        <p class="section-sub">
+          Работя изцяло дистанционно – изпращаш ми документите по имейл или
+          в Messenger / Viber, получаваш готов текст и PDF, който можеш да
+          разпечаташ или да изпратиш онлайн.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Как протича една поръчка?</h3>
+        <ul>
+          <li>
+            <span class="bullet">1.</span>
+            <span>Пращаш ми снимка или PDF на документа + кратко обяснение какво ти трябва.</span>
+          </li>
+          <li>
+            <span class="bullet">2.</span>
+            <span>Получаваш ориентировъчна цена и срок.</span>
+          </li>
+          <li>
+            <span class="bullet">3.</span>
+            <span>След като потвърдиш, изготвям текста/превода и ти го изпращам за преглед.</span>
+          </li>
+          <li>
+            <span class="bullet">4.</span>
+            <span>След финално одобрение – плащане по <strong>банков превод / Revolut / Lydia</strong>.</span>
+          </li>
+        </ul>
+
+        <div style="margin-top:10px;font-size:0.8rem;color:var(--muted);">
+          * За по-големи документи или редовни клиенти може да се договори
+          индивидуална цена.
+        </div>
+      </div>
+
+      <!-- Бутон за плащане с Revolut (BG) -->
+      <div style="margin-top:20px; text-align:center;">
+        <a href="https://revolut.me/chernyowgg" target="_blank" style="
+          display:inline-block;
+          padding:12px 24px;
+          border-radius:999px;
+          background:linear-gradient(120deg,#22c55e,#16a34a);
+          color:#ffffff;
+          font-weight:600;
+          text-decoration:none;
+          font-size:0.95rem;
+          box-shadow:0 10px 24px rgba(22,163,74,0.4);
+        ">
+          Плати онлайн с Revolut
+        </a>
+      </div>
+    </section>
+
+    <!-- Контакт -->
+    <section class="section" id="contact">
+      <div class="section-header">
+        <h2 class="section-title">Контакт</h2>
+        <p class="section-sub">
+          Пиши ми, изпрати снимка или PDF на документа и ще ти върна отговор
+          с цена и предложение как най-добре да решим казуса.
+        </p>
+      </div>
+
+      <div class="contact">
+        <div class="contact-card">
+          <h3 style="margin-bottom:6px;">Данни за контакт</h3>
+          <p style="font-size:0.82rem;color:var(--muted);margin-bottom:10px;">
+            Можеш да се свържеш с мен по телефон, Viber, WhatsApp или имейл.
+          </p>
+
+          <div class="contact-row">
+            <div class="label">Име:</div>
+            <div><strong>Черньо Дохчев</strong></div>
+          </div>
+
+          <div class="contact-row">
+            <div class="label">Телефон:</div>
+            <div><strong>0893672003</strong> (Viber / WhatsApp)</div>
+          </div>
+
+          <div class="contact-row">
+            <div class="label">Имейл:</div>
+            <div><strong>chavkz@gmail.com</strong></div>
+          </div>
+
+          <div class="contact-row">
+            <div class="label">Facebook:</div>
+            <div><strong>facebook.com/твоя-профил-или-страница</strong></div>
+          </div>
+
+          <div class="contact-row">
+            <div class="label">Град:</div>
+            <div>Франция (пример: Uzerche / Corrèze)</div>
+          </div>
+
+          <div class="lang-switch">
+            <span>Говоря български и френски.</span><br />
+            Мога да ти обясня всичко първо на български, а после да подготвим
+            официален текст на френски.
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <h3 style="margin-bottom:6px;">Текст за копиране при първи контакт</h3>
+          <p style="font-size:0.8rem;color:var(--muted);margin-bottom:8px;">
+            Можеш да дадеш на хората следния текст – да го копират и да ти го
+            изпратят попълнен по Messenger / имейл:
+          </p>
+
+          <div class="code-box">
+Име и фамилия:
+Телефон:
+Предпочитан начин за връзка (Viber / WhatsApp / Messenger / имейл):
+
+Какъв документ имате?
+(пример: договор за наем, писмо от банка, формуляр CAF, др.)
+
+От какво имате нужда?
+(превод, писмо, помощ с попълване на формуляр и т.н.)
+
+Имате ли краен срок?
+(пример: до 3 дни, до края на седмицата и др.)
+          </div>
+
+          <p style="font-size:0.78rem;color:var(--muted);margin-top:10px;">
+            Така ще имаш всички данни на едно място и ще можеш бързо да
+            отговаряш на хората.
+          </p>
+        </div>
+      </div>
+
+      <!-- Бутон за плащане с Revolut (BG контакт) -->
+      <div style="margin-top:20px; text-align:center;">
+        <a href="https://revolut.me/chernyowgg" target="_blank" style="
+          display:inline-block;
+          padding:10px 22px;
+          border-radius:999px;
+          background:linear-gradient(120deg,#22c55e,#16a34a);
+          color:#ffffff;
+          font-weight:600;
+          text-decoration:none;
+          font-size:0.9rem;
+          box-shadow:0 10px 24px rgba(22,163,74,0.4);
+        ">
+          Плати онлайн с Revolut
+        </a>
+      </div>
+    </section>
+
+    <!-- Футър -->
+    <footer class="footer">
+      <div>
+        <strong>DocHelp</strong> – помощ с документи за българи във Франция.
+      </div>
+      <div>
+        <span class="tag">Неофициални преводи и съдействие с документи.</span>
+      </div>
+    </footer>
+  </div>
+</div>
+
+<div class="lang-fr" style="display:none">
+  <div class="page">
+    <header class="nav">
+      <div class="logo">
+        DocHelp<span>Tcherno Dotchev – traductions & documents</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#services-fr">Services</a>
+        <a href="#prices-fr">Tarifs</a>
+        <a href="#contact-fr">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-text">
+        <div class="hero-highlight">
+          <span class="dot"></span>
+          Aide pour les Bulgares en France – démarches sans stress
+        </div>
+        <h1>
+          <span class="hero-gradient">Traductions, lettres et documents</span><br />
+          clairs, rapides et adaptés à votre situation.
+        </h1>
+        <p class="hero-sub">
+          Assistance pour la rédaction et la traduction de lettres, contrats et formulaires
+          <strong>bulgare ⇄ français</strong> – banques, logement, travail,
+          services sociaux, administrations.
+        </p>
+        <div class="hero-cta">
+          <a href="#contact-fr">
+            <button class="btn-primary">
+              Me contacter
+              <span>→</span>
+            </button>
+          </a>
+          <a href="#services-fr">
+            <button class="btn-outline">
+              Voir les services
+            </button>
+          </a>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <div class="hero-card-inner">
+          <div class="badge">
+            <span class="badge-dot"></span>
+            Accompagnement individuel, étape par étape
+          </div>
+          <h2 class="card-title">Service type</h2>
+          <p class="card-sub">
+            Traduction et préparation de documents pour la location, un crédit,
+            l&apos;emploi ou les aides sociales.
+          </p>
+
+          <ul class="card-list">
+            <li>
+              <span class="icon">✔</span>
+              <span>Traduction du bulgare vers le français et inversement.</span>
+            </li>
+            <li>
+              <span class="icon">✔</span>
+              <span>Aide au remplissage des formulaires + explication en bulgare.</span>
+            </li>
+            <li>
+              <span class="icon">✔</span>
+              <span>Document final prêt à être envoyé par e-mail ou courrier.</span>
+            </li>
+          </ul>
+
+          <div class="price-box">
+            <div class="price-main">
+              à partir de <strong>25 – 40 €</strong><br />
+              <span class="price-note">pour un document standard (1–2 pages)</span>
+            </div>
+            <div class="small-tag">
+              Paiement par virement / Revolut
+            </div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section" id="services-fr">
+      <div class="section-header">
+        <h2 class="section-title">Services</h2>
+        <p class="section-sub">
+          Services spécialisés pour les Bulgares vivant et travaillant en France.
+          Tout est expliqué clairement en bulgare, avec un résultat professionnel en français.
+        </p>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <h3>Traduction de documents</h3>
+          <p>
+            Traduction non assermentée de lettres, contrats, e-mails et formulaires
+            <strong>bulgare ⇄ français</strong>.
+          </p>
+          <ul>
+            <li>
+              <span class="bullet">•</span>
+              <span>Banques, crédits, contrats de location, documents d&apos;entreprise.</span>
+            </li>
+            <li>
+              <span class="bullet">•</span>
+              <span>CAF, CPAM, Pôle Emploi et autres administrations.</span>
+            </li>
+          </ul>
+          <div class="pill">
+            à partir de <strong>15 €</strong> / page
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Lettres et réclamations</h3>
+          <p>
+            Rédaction de lettres officielles en français – pour propriétaires,
+            employeurs, administrations, etc.
+          </p>
+          <ul>
+            <li>
+              <span class="bullet">•</span>
+              <span>Résiliation de contrat, réclamation, demande d&apos;information.</span>
+            </li>
+            <li>
+              <span class="bullet">•</span>
+              <span>Lettres explicatives en cas de problème de documents.</span>
+            </li>
+          </ul>
+          <div class="pill">
+            à partir de <strong>25 €</strong> / lettre
+          </div>
+        </article>
+
+        <article class="card">
+          <h3>Aide aux formulaires et démarches en ligne</h3>
+          <p>
+            Aide pour remplir les formulaires français (papier ou en ligne),
+            avec explication détaillée de chaque rubrique en bulgare.
+          </p>
+          <ul>
+            <li>
+              <span class="bullet">•</span>
+              <span>Dossiers pour l&apos;emploi, aides sociales, caisses d&apos;assurance maladie.</span>
+            </li>
+            <li>
+              <span class="bullet">•</span>
+              <span>Préparation des informations nécessaires avant vos rendez-vous.</span>
+            </li>
+          </ul>
+          <div class="pill">
+            à partir de <strong>20 €</strong> / démarche
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="prices-fr">
+      <div class="section-header">
+        <h2 class="section-title">Tarifs et fonctionnement</h2>
+        <p class="section-sub">
+          Tout se fait à distance – vous m&apos;envoyez vos documents par e-mail,
+          Messenger, Viber ou WhatsApp, et vous recevez un texte prêt à l&apos;emploi.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Comment ça se passe ?</h3>
+        <ul>
+          <li>
+            <span class="bullet">1.</span>
+            <span>Vous envoyez une photo ou un PDF du document + une courte explication de votre besoin.</span>
+          </li>
+          <li>
+            <span class="bullet">2.</span>
+            <span>Je vous propose un tarif approximatif et un délai.</span>
+          </li>
+          <li>
+            <span class="bullet">3.</span>
+            <span>Après votre accord, je prépare la traduction ou le texte et vous l&apos;envoie pour validation.</span>
+          </li>
+          <li>
+            <span class="bullet">4.</span>
+            <span>Après validation, le paiement se fait par <strong>virement / Revolut / Lydia</strong>.</span>
+          </li>
+        </ul>
+
+        <div style="margin-top:10px;font-size:0.8rem;color:var(--muted);">
+          * Pour des volumes plus importants ou des besoins réguliers,
+          un tarif personnalisé est possible.
+        </div>
+      </div>
+
+      <!-- Bouton paiement Revolut (FR tarifs) -->
+      <div style="margin-top:20px; text-align:center;">
+        <a href="https://revolut.me/chernyowgg" target="_blank" style="
+          display:inline-block;
+          padding:12px 24px;
+          border-radius:999px;
+          background:linear-gradient(120deg,#22c55e,#16a34a);
+          color:#ffffff;
+          font-weight:600;
+          text-decoration:none;
+          font-size:0.95rem;
+          box-shadow:0 10px 24px rgba(22,163,74,0.4);
+        ">
+          Payer en ligne (Revolut)
+        </a>
+      </div>
+    </section>
+
+    <section class="section" id="contact-fr">
+      <div class="section-header">
+        <h2 class="section-title">Contact</h2>
+        <p class="section-sub">
+          Envoyez-moi votre document (photo ou PDF) et je vous répondrai avec un tarif
+          et une proposition de solution.
+        </p>
+      </div>
+
+      <div class="contact">
+        <div class="contact-card">
+          <h3 style="margin-bottom:6px;">Coordonnées</h3>
+          <p style="font-size:0.82rem;color:var(--muted);margin-bottom:10px;">
+            Vous pouvez me contacter en bulgare ou en français. Explications possibles
+            d&apos;abord en bulgare, puis rédaction en français.
+          </p>
+
+          <div class="contact-row">
+            <div class="label">Nom:</div>
+            <div><strong>Tcherno Doktchev</strong></div>
+          </div>
+
+          <div class="contact-row">
+            <div class="label">Téléphone:</div>
+            <div><strong>0893672003</strong> (Viber / WhatsApp)</div>
+          </div>
+
+          <div class="contact-row">
+            <div class="label">Email:</div>
+            <div><strong>chavkz@gmail.com</strong></div>
+          </div>
+
+          <div class="contact-row">
+            <div class="label">Ville:</div>
+            <div>France (ex.: Uzerche / Corrèze)</div>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <h3 style="margin-bottom:6px;">Message type</h3>
+          <p style="font-size:0.8rem;color:var(--muted);margin-bottom:8px;">
+            Vous pouvez proposer aux gens de copier ce texte et de me l&apos;envoyer
+            rempli par Messenger / e-mail :
+          </p>
+
+          <div class="code-box">
+Nom et prénom :
+Téléphone :
+Moyen de contact préféré (Viber / WhatsApp / Messenger / e-mail) :
+
+Quel type de document avez-vous ?
+(ex.: contrat de location, lettre de la banque, formulaire CAF, etc.)
+
+De quoi avez-vous besoin ?
+(traduction, lettre, aide pour remplir un formulaire, etc.)
+
+Avez-vous une date limite ?
+(ex.: sous 3 jours, avant la fin de la semaine, etc.)
+          </div>
+
+          <p style="font-size:0.78rem;color:var(--muted);margin-top:10px;">
+            Ainsi, toutes les informations nécessaires seront regroupées,
+            ce qui permet de répondre plus rapidement.
+          </p>
+        </div>
+      </div>
+
+      <!-- Bouton paiement Revolut (FR contact) -->
+      <div style="margin-top:20px; text-align:center;">
+        <a href="https://revolut.me/chernyowgg" target="_blank" style="
+          display:inline-block;
+          padding:10px 22px;
+          border-radius:999px;
+          background:linear-gradient(120deg,#22c55e,#16a34a);
+          color:#ffffff;
+          font-weight:600;
+          text-decoration:none;
+          font-size:0.9rem;
+          box-shadow:0 10px 24px rgba(22,163,74,0.4);
+        ">
+          Payer en ligne (Revolut)
+        </a>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div>
+        <strong>DocHelp</strong> – aide avec les documents pour les Bulgares en France.
+      </div>
+      <div>
+        <span class="tag">Traductions non officielles et assistance administrative.</span>
+      </div>
+    </footer>
+  </div>
+</div>
+
+</body>
+</html>
