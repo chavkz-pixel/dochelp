@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://chavkz-pixel.github.io/dochelp/sitemap.xml
