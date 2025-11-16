@@ -3,7 +3,55 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Преводи и документи – услуги за българи във Франция</title>
+
+  <title>Преводачески услуги във Франция – DocHelp</title>
+
+  <meta name="description" content="Преводи, писма и помощ с документи за българи във Франция – Черньо Дохчев. Неофициални преводи български ⇄ френски, писма, жалби, формуляри, банки, наеми, социални служби.">
+  <meta name="keywords" content="превод български френски, документи Франция, преводи за българи във Франция, помощ с документи, превод на договор, писмо на френски, превод на писмо, Черньо Дохчев, DocHelp">
+  <link rel="canonical" href="https://chavkz-pixel.github.io/dochelp/">
+
+  <!-- OpenGraph за Facebook / Viber / WhatsApp -->
+  <meta property="og:title" content="Преводачески услуги във Франция – DocHelp">
+  <meta property="og:description" content="Преводи, писма и помощ с документи за българи във Франция. Черньо Дохчев – неофициални преводи български ⇄ френски, банки, наеми, работа, социални служби.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://chavkz-pixel.github.io/dochelp/">
+  <meta property="og:site_name" content="DocHelp">
+  <meta property="og:image" content="https://chavkz-pixel.github.io/dochelp/favicon.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Преводачески услуги във Франция – DocHelp">
+  <meta name="twitter:description" content="Преводи и помощ с документи за българи във Франция (български ⇄ френски).">
+
+  <!-- Favicon-и, ако си ги качил -->
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Структурирани данни за Google (schema.org) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "DocHelp – преводи и документи",
+    "url": "https://chavkz-pixel.github.io/dochelp/",
+    "description": "Преводи, писма и помощ с документи за българи във Франция – български ⇄ френски.",
+    "telephone": "+359893672003",
+    "areaServed": [
+      { "@type": "Country", "name": "France" },
+      { "@type": "Country", "name": "Bulgaria" }
+    ],
+    "inLanguage": ["bg", "fr"],
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "telephone": "+359893672003",
+        "contactType": "customer service",
+        "availableLanguage": ["bg", "fr"]
+      }
+    ]
+  }
+  </script>
+
   <style>
     :root {
       --bg: #050816;
@@ -397,6 +445,7 @@
       grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.2fr);
       gap: 18px;
       align-items: flex-start;
+      flex-wrap: wrap;
     }
 
     .contact-card {
@@ -862,6 +911,21 @@ function switchLang(lang) {
             отговаряш на хората.
           </p>
         </div>
+
+        <!-- QR код BG -->
+        <div class="contact-card">
+          <h3 style="margin-bottom:6px;">QR код към сайта</h3>
+          <p style="font-size:0.8rem;color:var(--muted);margin-bottom:8px;">
+            Сканирай този QR код с камерата на телефона, за да отвориш директно сайта DocHelp.
+          </p>
+          <div style="text-align:center; margin-top:8px;">
+            <img
+              src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https%3A%2F%2Fchavkz-pixel.github.io%2Fdochelp%2F"
+              alt="QR код към DocHelp"
+              style="max-width:160px;width:60%;height:auto;border-radius:12px;border:1px solid rgba(148,163,184,0.5);background:#ffffff;padding:6px;"
+            >
+          </div>
+        </div>
       </div>
 
       <!-- Бутон за плащане с Revolut (BG контакт) -->
@@ -1171,9 +1235,24 @@ Avez-vous une date limite ?
             ce qui permet de répondre plus rapidement.
           </p>
         </div>
+
+        <!-- QR code FR -->
+        <div class="contact-card">
+          <h3 style="margin-bottom:6px;">Code QR vers le site</h3>
+          <p style="font-size:0.8rem;color:var(--muted);margin-bottom:8px;">
+            Scannez ce code QR avec l’appareil photo de votre téléphone pour ouvrir directement le site DocHelp.
+          </p>
+          <div style="text-align:center; margin-top:8px;">
+            <img
+              src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https%3A%2F%2Fchavkz-pixel.github.io%2Fdochelp%2F"
+              alt="Code QR vers DocHelp"
+              style="max-width:160px;width:60%;height:auto;border-radius:12px;border:1px solid rgba(148,163,184,0.5);background:#ffffff;padding:6px;"
+            >
+          </div>
+        </div>
       </div>
 
-      <!-- Bouton paiement Revolut (FR contact) -->
+      <!-- Boutон paiement Revolut (FR contact) -->
       <div style="margin-top:20px; text-align:center;">
         <a href="https://revolut.me/chernyowgg" target="_blank" style="
           display:inline-block;
@@ -1217,4 +1296,3 @@ Avez-vous une date limite ?
 
 </body>
 </html>
-
